@@ -42,7 +42,6 @@ class TokenController extends Controller
         $sid    = "AC00c454dc839c77f91ab5b7c77ab8b7f4";
         $token  = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzg5YTM3OGIzMjQwZWE4ODA1YjExMWQyMmVmMTEyNGQyLTE1OTE5MDgwMTEiLCJpc3MiOiJTSzg5YTM3OGIzMjQwZWE4ODA1YjExMWQyMmVmMTEyNGQyIiwic3ViIjoiQUMwMGM0NTRkYzgzOWM3N2Y5MWFiNWI3Yzc3YWI4YjdmNCIsImV4cCI6MTU5MTkxMTYxMSwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiMjUiLCJjaGF0Ijp7InNlcnZpY2Vfc2lkIjoiSVNjNGUyMDJjZDI1N2E0YjdkYTI3ZWUzMDc0NzRjNGZkNyJ9fX0.XLASmI1i6mhM1XKb4ieAoUISzgtkxb4pVwlpuaw24SE";
         $twilio = new Client($sid, $token);
-        return $twilio;
         // Fetch channel or create a new one if it doesn't exist
 
                 $channel = $twilio->chat->v2->services("ISc4e202cd257a4b7da27ee307474c4fd7")
@@ -50,22 +49,7 @@ class TokenController extends Controller
                         ->create([
                                 'uniqueName' => 'kjjdghkds',
                                 'type' => 'private',
-                        ]);
-
-        // // Add second user to the channel
-        // try {
-        //         $twilio->chat->v2->services(env('TWILIO_SERVICE_SID'))
-        //                 ->channels($ids)
-        //                 ->members($otherUser->email)
-        //                 ->fetch();
-
-        // } catch (\Twilio\Exceptions\RestException $e) {
-        //         $twilio->chat->v2->services(env('TWILIO_SERVICE_SID'))
-        //                 ->channels($ids)
-        //                 ->members
-        //                 ->create($otherUser->email);
-        // }
-
+                ]);
         return $channel;
     }
 }
